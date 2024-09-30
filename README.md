@@ -1,0 +1,1 @@
+uvicorn aws_image_manager.main:app --reload

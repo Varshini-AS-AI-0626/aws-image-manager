@@ -79,7 +79,7 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
 async def create_ami(
     request: Request, item: CreateAMI, token: str = Depends(oauth2_scheme)
 ):
-    return {"ok": True}
+    return {"ok": item.dict()}
 
 
 @app.post("/create_launch_template", tags=["Create Launch template"])
@@ -87,7 +87,7 @@ async def create_ami(
 async def create_launch_template(
     request: Request, item: CreateLTI, token: str = Depends(oauth2_scheme)
 ):
-    pass
+    return {"ok": item.dict()}
 
 
 @app.put("/update_launch_template", tags=["Update Launch template"])
@@ -95,4 +95,4 @@ async def create_launch_template(
 async def update_launch_template(
     request: Request, item: UpdateLTI, token: str = Depends(oauth2_scheme)
 ):
-    pass
+    return {"ok": item.dict()}

@@ -9,7 +9,7 @@ from passlib.context import CryptContext
 from datetime import datetime, timedelta
 from fastapi import HTTPException, Depends
 from fastapi.security import OAuth2PasswordBearer
-from ..database.connections import MakeConnections
+from ..database import make_connection
 
 load_dotenv()
 
@@ -18,8 +18,7 @@ ALGORITHM = os.getenv("ALGORITHM")
 ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES"))
 
 
-connection_obj = MakeConnections()
-client = connection_obj.client
+client = make_connection()
 
 db = client["DO_console"]
 users_collection = db["users"]

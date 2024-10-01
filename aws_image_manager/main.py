@@ -1,7 +1,7 @@
 from fastapi.responses import RedirectResponse
-from .database.connections import MakeConnections
 from fastapi import FastAPI, HTTPException, Depends, Request
 from fastapi.security import OAuth2PasswordRequestForm
+from .database import make_connection
 from .models.models import (
     UserCreate,
     CreateAMI,
@@ -26,9 +26,7 @@ app = FastAPI(
 )
 
 
-connection_obj = MakeConnections()
-client = connection_obj.client
-
+client = make_connection()
 db = client["DO_console"]
 users_collection = db["users"]
 

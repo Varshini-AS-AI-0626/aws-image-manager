@@ -1,6 +1,6 @@
 from fastapi.responses import RedirectResponse
-from fastapi import FastAPI, HTTPException, Depends, Request
 from fastapi.security import OAuth2PasswordRequestForm
+from fastapi import FastAPI, HTTPException, Depends, Request
 from .database import make_connection
 from .models.models import (
     UserCreate,

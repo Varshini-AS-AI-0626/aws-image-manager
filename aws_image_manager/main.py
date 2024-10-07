@@ -23,6 +23,7 @@ app = FastAPI(
     title="AWS Image Manager",
     version="0.1.0",
     description="Manages AWS Images and Launch Templates across 4 AWS accounts",
+    redoc_url=None
 )
 
 
